@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="static/main.css">
+</head>
+<body>
+<h2>Bill Distribution</h2>
+<p>Fill in the form and click the button to get the results</p>
+<form action="/bill_form_page" method="post">
+    {{billform.amount.label}} <div style="width: 10%">{{billform.amount}}</div>
+    <br>
+    {{billform.period.label}} <div style="width: 10%">{{billform.period}}</div>
+    <hr>
+    <p>First Roommate</p>
+    {{billform.name1.label}} <div style="width: 10%">{{billform.name1}}</div>
+    <br>
+    {{billform.days_in_house1.label}} <div style="width: 10%">{{billform.days_in_house1}}</div>
+    <hr>
+    <p>Second Roommate</p>
+    {{billform.name2.label}} <div style="width: 10%">{{billform.name2}}</div>
+    <br>
+    {{billform.days_in_house2.label}} <div style="width: 10%">{{billform.days_in_house2}}</div>
+    <hr>
+    <div style="width: 10%">{{billform.button}}</div>
+    <br>
+    {% if result %}
+    Amounts Owed: <br><br>
+    {{name1}} : {{amount1}} <br><br>
+    {{name2}} : {{amount2}}
+    {% else %}
+    Some data is missing. Please enter data.
+    {% endif %}
+</form>
+</body>
+</html>
